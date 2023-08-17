@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - Tes t function positive or negative
+ * main - Test function for  positive or negative
  * Return: 0
  */
 
@@ -10,6 +10,6 @@ int main(void)
 	int i;
 
 	i = 0;
-	positive _or_negative(i);
+	positive_or_negative(i);
 	return (0);
 }
