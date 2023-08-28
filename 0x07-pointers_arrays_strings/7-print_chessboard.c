@@ -1,26 +1,18 @@
 #include "main.h"
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
+ * print_chessboard - Entry point
+ * @a: array
  * Return: Always 0 (Success)
  */
-char *_strstr(char *haystack, char *needle)
+void print_chessboard(char (*a)[8])
 {
-	for (; *haystack != '\0'; haystack++)
+	int i;
+	int j;
+
+	for (i = 0; i < 8; i++)
 	{
-		char *l = haystack;
-		char *p = needle;
-
-		while (*l == *p && *p != '\0')
-		{
-			l++;
-			p++;
-		}
-
-		if (*p == '\0')
-			return (haystack);
+		for (j = 0; j < 8; j++)
+			_putchar(a[i][j]);
+		_putchar('\n');
 	}
-
-	return (0);
 }
