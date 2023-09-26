@@ -9,7 +9,8 @@
  * frees the memory allocated for it, and returns the data contained in the
  * deleted node. If the list is empty, it returns 0.
  *
- * Return: The data inside the element that was deleted, or 0 if the list is empty.
+ * Return: The data inside the element that was deleted
+ * or 0 if the list is empty.
  */
 int pop_listint(listint_t **head)
 {
