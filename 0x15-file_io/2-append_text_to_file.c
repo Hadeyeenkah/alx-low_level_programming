@@ -3,17 +3,24 @@
 /**
  * append_text_to_file - Appends text to the end of a file.
  *
- * This function takes the name of a file and a string of text content and
- * appends the text to the end of the specified file. If the file does not
- * exist or the user lacks write permissions, or if either the filename or
- * text_content is NULL, the function returns -1. Otherwise, it returns 1 to
+ * This function takes the name of a file and
+ * string of text content and
+ * appends the text to the end of the specified file.
+ * If the file does not
+ * exist or the user lacks write permissions,
+ * or if either the filename or
+ * text_content is NULL, the function returns -1.
+ * Otherwise, it returns 1 to
  * indicate successful appending.
  *
  * @filename: A pointer to the name of the file to append to.
- * @text_content: The string to append to the end of the file (can be NULL).
+ * @text_content: The string to append to the end of
+ * the file (can be NULL).
  *
- * Return: If the function fails, filename is NULL, or text_content is NULL - -1.
- * If the file does not exist or the user lacks write permissions - -1.
+ * Return: If the function fails, filename is NULL, or
+ * text_content is NULL - -1.
+ * If the file does not exist or the user lacks
+ * write permissions - -1.
  * Otherwise, it returns 1 to indicate success.
  */
 int append_text_to_file(const char *filename, char *text_content)
