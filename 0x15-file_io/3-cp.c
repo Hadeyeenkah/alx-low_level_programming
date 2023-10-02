@@ -2,20 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char *create_buffer(char *file);
+void close_file(int fd);
+
 /**
- * create_buffer - Allocates a 1024-byte
- * buffer for file operations.
+ * create_buffer - Allocates 1024 bytes for a buffer.
+ * @file: The name of the file buffer is storing chars.
  *
- * This function dynamically allocates memory
- * for a buffer of 1024 bytes
- * that can be used for reading and
- * writing file data. If the allocation
- * fails, it prints an error message and
- * exits with code 99.
- *
- * @file: The name of the file for
- * which the buffer is being allocated.
- * 
  * Return: A pointer to the newly-allocated buffer.
  */
 char *create_buffer(char *file)
@@ -27,7 +20,7 @@ char *create_buffer(char *file)
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO,
-				"Error: Can't write to %s\n", file);
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
@@ -35,14 +28,7 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Closes a file descriptor and handles errors.
- * 
- * This function attempts to close a file
- * descriptor and checks for errors.
- * If an error occurs during the close operation,
- * it prints an error message
- * and exits with code 100.
- *
+ * close_file - Closes file descriptors.
  * @fd: The file descriptor to be closed.
  */
 void close_file(int fd)
@@ -59,28 +45,16 @@ void close_file(int fd)
 }
 
 /**
- * main - Copies the contents of one file to another.
- *
- * This program copies the contents of a source file to
- * a destination file.
- * It takes two command-line arguments: the source file and
- * the destination
- * file.
- * If the arguments are not provided or incorrect,
- * it prints a usage
- * message and exits with code 97.
- * If the source file cannot be read or the
- * destination file cannot be created or written to,
- * it prints corresponding
- * error messages and exits with codes 98 and 99,
- * respectively. If either the
- * source or destination file cannot be closed,
- * it exits with code 100.
- *
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the program's arguments.
+ * main - Copy the contents of a file to another file
+ * @argc: The number of arguments supplied to program.
+ * @argv: An array of pointers to the arguments.
  *
  * Return: 0 on success.
+ *
+ * Description: If the argument count is incorrect -exit code 97.
+ * If file_from does not exist or cannot be read - exit code 98.
+ * If file_to cannot be created or written to - exit code 99.
+ * If file_to or file_from cannot be closed - exit code 100.
  */
 
 int main(int argc, char *argv[])
@@ -103,7 +77,7 @@ int main(int argc, char *argv[])
 		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"Error: Can't read from file %s\n", argv[1]);
+				"Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
@@ -112,7 +86,7 @@ int main(int argc, char *argv[])
 		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"Error: Can't write to %s\n", argv[2]);
+				"Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
